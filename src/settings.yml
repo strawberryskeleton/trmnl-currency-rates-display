@@ -10,8 +10,8 @@ dark_mode: 'no'
 static_data: ''
 polling_verb: get
 framework_version: latest
-polling_url: ''
+polling_url: 'https://api.frankfurter.dev/v1/latest?from=USD&to=HKD,INR'
 polling_headers: ''
-name: My Plugin
+name: currency-rates-display
 description: ''
 refresh_interval: 1440
