@@ -1,12 +1,76 @@
 <style>
 
-/* .screen {
+* {
+  box-sizing: border-box;
+  /* margin: 0; */
+  /* padding: 0; */
+}
 
-  background-size: cover;
-  background-color: white;
+.screen {
+  position: relative;
+  /* background-size: cover; */
+  /* background-color: white; */
   height: 100vh;
   width: 100vw;
+  overflow: hidden;
+}
+
+.bg-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* object-fit: cover; */
+  z-index: 1;
+}
+
+.content-wrapper {
+  height: 100%;
+  position: relative;
+  z-index: 10;
+  /* background-color: whitesmoke; */
+}
+
+.layout {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  /* background-color: cornflowerblue; */
+  /* padding: 1rem; */
+
+  display: flex;
+  flex-direction: column;
+  /* align-items: baseline; */
+  justify-content: space-evenly;
+}
+
+/* .title_bar {
+  position: absolute;
+  width: 95%;
+  margin: 0 auto;
+  margin: 1rem;
+  background-color: coral;
 } */
+
+
+
+.title-div {
+  /* height: 10%; */
+  width: 90%;
+  margin: 0.5rem 1rem;
+  padding: 0.75rem;
+  background-color: coral;
+  border-radius: 12px;
+}
+
+.curr-div {
+  border: 2px solid purple;
+  height: 60%;
+  background-color: coral;
+}
+
+
 
 </style>
 
@@ -14,15 +78,45 @@
 
 <div class="screen screen--no-bleed">
   {% comment %} bg img {% endcomment %}
-  <img class="image image-dither" src="https://cdn.hackclub.com/01a1d4d4-9bfa-7cb2-a255-c758c72102bf/bg.png">
+  <img class="image image-dither bg-img" src="https://cdn.hackclub.com/01a1d4d4-9bfa-7cb2-a255-c758c72102bf/bg.png">
 
-  <div class="view view--full">
+  <div class="content-wrapper">
+    <div class="view view--full">
     
-    <div class="layout layout--col layout--center">
+      {% comment %} <div class="layout layout--center">
+        
+        <span class="title title--large text--white">currency converter</span>
+        
+
+
+      </div> {% endcomment %}
+
+      {% comment %} <div class="title_bar">
+        <span class="title">Title</span>
+        <span class="instance">Instance</span>
+      </div> {% endcomment %}
+
+
+      <div class="layout layout--center">
+
+
+        {% comment %} <div class="grid grid--cols-2">
+          <div class="curr curr-usd">1/4</div>
+          <div class="curr curr-others">1/4</div>
+        </div> {% endcomment %}
+
+        <div class="title-div">
+          <span class="title title--large text--white">Currency Convertor</span>
+        </div>
+
+        <div class="curr-div">
+
+        </div>
+
+        <div class="someting-div"></div>
+
+      </div>
       
-      <span class="title title--large">currency converter</span>
-
     </div>
-    
   </div>
 </div>
