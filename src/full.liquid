@@ -81,6 +81,15 @@
   height: 100%;
 
   padding: 1rem;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.curr-div-base span {
+  font-size: 4rem;
 }
 
 .curr-div-equal {
@@ -96,6 +105,20 @@
   width: 50%;
   height: 100%;
   background-color: cornflowerblue;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.curr-div-rates {
+  width: 95%;
+  padding: 1rem;
+  border: 2px solid black;
+
+  font-size: 2.5rem;
+  text-align: center;
 }
 
 .date-div {
@@ -150,9 +173,11 @@
           </div>
 
           <div class="curr-div-others">
-            <div class="curr-div-rates-1">
-              <span>{{rates.HKD}} HKD</span>
-              <span>{{rates.INR}} INR</span>
+            <div class="curr-div-rates curr-div-rates-1">
+              <span>{{rates.HKD}}  HKD</span>
+            </div>
+            <div class="curr-div-rates curr-div-rates-2">
+              <span>{{rates.INR}}  INR</span>
             </div>
           </div>
         </div>
