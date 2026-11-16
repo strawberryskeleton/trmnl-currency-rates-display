@@ -1,10 +1,17 @@
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
 
 * {
   box-sizing: border-box;
   /* margin: 0; */
   /* padding: 0; */
 }
+
+/* @font-face {
+  font-family: "Audiowide", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+} */
 
 .screen {
   position: relative;
@@ -13,6 +20,8 @@
   height: 100vh;
   width: 100vw;
   overflow: hidden;
+  --framework-typeface: "Audiowide", sans-serif;
+  font-family: "Audiowide", sans-serif;
 }
 
 .bg-img {
@@ -64,6 +73,7 @@
   color: white;
   border: 2px solid white;
   border-radius: 12px;
+  font-size: 2rem;
 }
 
 .curr-div {
@@ -94,7 +104,7 @@
 }
 
 .curr-div-base span {
-  font-size: 4rem;
+  font-size: 3.5rem;
 }
 
 .curr-div-equal {
@@ -126,7 +136,7 @@
   border: 2px solid black;
   border-radius: 12px;
 
-  font-size: 2.5rem;
+  font-size: 2.15rem;
   text-align: center;
 }
 
@@ -135,9 +145,10 @@
   border: 2px solid white;
   border-radius: 12px;
   color: white;
-  width: 25%;
-  padding: 0.5rem 2rem;
-  font-size: 1.5rem;
+  width: 30%;
+  padding: 0.5rem;
+  padding-right: 2rem;
+  font-size: 1.25rem;
   text-align: right;
 
   align-self: flex-end;
@@ -178,7 +189,7 @@
         </div> {% endcomment %}
 
         <div class="title-div">
-          <span class="title title--large text--white">Currency Convertor</span>
+          <span>Currency Convertor</span>
         </div>
 
         <div class="curr-div">
