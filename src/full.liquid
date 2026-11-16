@@ -202,7 +202,7 @@
         </div>
 
         <div class="date-div">
-          <span>{{date}}</span>
+          <span>{{ 'now' | date: '%d %b %Y' }}</span>
         </div>
 
       </div>
@@ -210,3 +210,7 @@
     </div>
   </div>
 </div>
+
+{% comment %} <script>
+  let date_today = new Date({{system.timestamp_utc}} * 1000)
+</script> {% endcomment %}
