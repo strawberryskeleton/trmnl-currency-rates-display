@@ -30,7 +30,7 @@ jobs:
           mkdir -p public
           trmnlp serve -p 4567 &
           SERVER_PID=$!
-          sleep 4
+          sleep 8
           curl -s http://localhost:4567 > public/index.html
           kill $SERVER_PID
 
