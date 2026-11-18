@@ -1,0 +1,40 @@
+name: Deploy Live Preview Webpage
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "4.0"
+
+      - name: Install trmnlp preview
+        run: gem install trmnl_preview
+
+      - name: Generate Static HTML Preview
+        run: |
+          mkdir -p public
+          trmnlp serve -p 4567 &
+          SERVER_PID=$!
+          sleep 4
+          curl -s http://localhost:4567 > public/index.html
+          kill $SERVER_PID
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
+          keep_files: false
