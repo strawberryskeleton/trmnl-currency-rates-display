@@ -25,19 +25,26 @@ jobs:
       - name: Install trmnlp preview
         run: gem install trmnl_preview
 
-      - name: Generate Static HTML Preview
+      - name: Build Static HTML Preview
         run: |
-          mkdir -p public
-          trmnlp serve -p 4567 &
-          SERVER_PID=$!
-          sleep 8
-          curl -s http://localhost:4567 > public/index.html
-          kill $SERVER_PID
+          # Runs the native CLI build command, outputs to _build/
+          trmnlp build
+          
+          # Optional: Copy your main layout file to index.html so GitHub Pages loads it automatically at the root URL
+          # (Check if your main layout file is full.html or index.html inside _build/)
+          if [ -f "_build/full.html" ]; then
+            cp _build/full.html _build/index.html
+          elif [ -f "_build/index.html" ]; then
+            echo "index.html already exists"
+          else
+            # Fallback copy of the first available HTML file in _build
+            cp _build/*.html _build/index.html || true
+          fi
 
       - name: Upload artifact for GitHub Pages
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './public'
+          path: './_build'
 
       - name: Deploy to GitHub Pages
         id: deployment
